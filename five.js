@@ -1,4 +1,28 @@
 require('./settings')
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+// Middleware untuk parsing JSON
+app.use(express.json());
+
+// Route GET ke /
+app.get('/', (req, res) => {
+  res.send('Halo, Dunia! Ini aplikasi Express sederhana.');
+});
+
+// Route POST ke /data
+app.post('/data', (req, res) => {
+  const { name, age } = req.body;
+  res.json({
+    message: `Halo ${name}, umur kamu ${age} tahun!`,
+  });
+});
+
+// Jalankan server
+app.listen(PORT, () => {
+  console.log(`Server berjalan di http://localhost:${PORT}`);
+});
 const { default: finixfiveConnect, makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto, getAggregateVotesInPollMessage } = global.baileys1
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
