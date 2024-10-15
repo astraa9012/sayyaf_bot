@@ -11,7 +11,7 @@ const NodeCache = require("node-cache")
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/storage')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
-const usePairingCode = true
+const usePairingCode = false
 const question = (text) => {
 const rl = readline.createInterface({
 input: process.stdin,
@@ -42,7 +42,7 @@ resolveMsgBuffer,
 });
 if(usePairingCode && !finixfive.authState.creds.registered) {
 console.log(`Welcome to script finix five created Tama_Ultraa.Enjoy to use this script👏😁`)
-		const phoneNumber = await question(`ENTER YOUR NUMBER BOT:`);
+		const phoneNumber = await question(`+62895352937399`);
 		const code = await finixfive.requestPairingCode(phoneNumber.trim())
 		console.log(`YOUR PAIRING CODE : ${code}`)
 }
